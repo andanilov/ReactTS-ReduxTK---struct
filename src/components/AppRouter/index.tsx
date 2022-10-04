@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { publicRoutes, privateRoutes } from '../../routes';
 
 const AppRouter : FC = () => {
-  const auth = true;
+  const auth = false;
   const router = createBrowserRouter(auth ? privateRoutes : publicRoutes);
 
   return <RouterProvider router={router} />;

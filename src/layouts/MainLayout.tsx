@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
+import NaviTop from '../components/NaviTop';
 
 interface IMainLayoutProps {
-  children: JSX.Element
+  children: ReactNode
 }
 
-const MainLayout : FC<IMainLayoutProps> = ({ children }) => {
-  return (
-    <div>
-      {children}
-    </div>
-  );
-}
+const MainLayout : FC<IMainLayoutProps> = ({ children }) => (
+  <>
+    <header><NaviTop /></header>
+    <section>{children}</section>
+  </>
+);
 
 export default MainLayout;
