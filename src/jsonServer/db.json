@@ -1,0 +1,64 @@
+{
+    "users": [
+      {
+        "id": "1",
+        "email": "admin1@mail.ru",
+        "name": "Андрей",
+        "access": 10
+      },
+      {
+        "id": "2",
+        "email": "admin2@mail.ru",
+        "name": "Алексей",
+        "access": 10
+      },
+      {
+        "id": "3",
+        "email": "manager1@mail.ru",
+        "name": "Василий",
+        "access": 5
+      },
+      {
+        "id": "4",
+        "email": "manager2@mail.ru",
+        "name": "Глеб",
+        "access": 5
+      },
+      {
+        "id": "4",
+        "email": "manager3@mail.ru",
+        "name": "Дмитрий",
+        "access": 5
+      },
+      {
+        "id": "5",
+        "email": "manager4@mail.ru",
+        "name": "Егор",
+        "access": 1
+      },
+      {
+        "id": "6",
+        "email": "user1@mail.ru",
+        "name": "Константин",
+        "access": 1
+      },
+      {
+        "id": "7",
+        "email": "user2@mail.ru",
+        "name": "Максим",
+        "access": 1
+      },
+      {
+        "id": "8",
+        "email": "user3@mail.ru",
+        "name": "Никита",
+        "access": 1
+      },
+      {
+        "id": "9",
+        "email": "user4@mail.ru",
+        "name": "Сергей",
+        "access": 1
+      }
+    ]
+}

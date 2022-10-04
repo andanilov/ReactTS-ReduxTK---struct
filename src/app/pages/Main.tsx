@@ -5,12 +5,12 @@ import MainLayout from '../layouts/MainLayout';
 import { IauthInitState } from '../store/authSlice';
 
 const Main : FC = () => {
-  const { isAuth } = useTypedSelector((state) => state.auth);
+  const { access } = useTypedSelector((state) => state.auth);
 
   return (
     <MainLayout>
       Main page!
-      {+isAuth}
+      {access}
     </MainLayout>
   );
 };

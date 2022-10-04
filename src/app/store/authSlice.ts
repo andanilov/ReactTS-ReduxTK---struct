@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IauthInitState {
-  isAuth: boolean,
+  access: number,
 }
 
 const authSlice = createSlice({
   name: 'authSlice',
-  initialState: { isAuth: true } as IauthInitState,
+  initialState: { access: 0 } as IauthInitState,
   reducers: {
-    inc: (state: IauthInitState, action: PayloadAction<boolean>) => {
-      state.isAuth = action.payload;
+    inc: (state: IauthInitState, action: PayloadAction<number>) => {
+      state.access = action.payload;
     },
   },
 });
