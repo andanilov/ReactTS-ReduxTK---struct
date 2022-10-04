@@ -23,7 +23,8 @@ module.exports = {
 		'import/no-unresolved': 'off',
 		'react/function-component-definition': 'off',
 		'no-shadow': 'off',
-		'no-unused-vars': 'off'
-		 
+		'no-unused-vars': 'off',
+		'no-param-reassign': 'off',
+		'import/prefer-default-export': 'off'
 	}
 };
