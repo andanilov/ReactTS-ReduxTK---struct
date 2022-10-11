@@ -1,0 +1,29 @@
+.page {
+    display: grid;
+    min-height: 100vh;
+    justify-content: center;
+    grid-template-rows: 80px 1fr min-content;
+}
+
+.page > header {
+    display: flex;
+    height: 80px;
+    min-width: 1024px;
+    border-bottom: 4px solid #f2f2f2;
+    justify-content: space-between;
+}
+
+.page > header > aside {
+    display: flex;
+    align-items: center;    
+}
+
+.page > section {
+    height: auto;    
+    min-width: 1024px;
+}
+
+.page > footer {
+    height: 50px;
+    text-align: center;
+}
