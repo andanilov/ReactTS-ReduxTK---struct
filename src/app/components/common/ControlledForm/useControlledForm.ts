@@ -25,11 +25,15 @@ export default function useControlledForm({
     const currentError = Object.entries(dataRulesMap).reduce((errrsAcc, [name, rls]) => {
       // Get errors for field
       const errs = Object.entries(rls).reduce((rlsField: string[], [rl, argv]) => {
+        // If needs another field to compare
+        argv?.original && data[argv.original]
+        && (argv = { ...argv, original: data[argv?.original] as string });
+
         const err = validator(rules[rl as keyof IRules](argv) as Fnctn)(data[name]);
         return err ? [...rlsField, err] : rlsField;
       }, []);
-
-      return errs.length ? { ...errrsAcc, [name]: errs } : errrsAcc;
+      // Return first error (errs[0])
+      return errs.length ? { ...errrsAcc, [name]: errs[0] } : errrsAcc;
     }, {});
     // - 2. Update errors state
     setError(() => currentError);
@@ -42,5 +46,6 @@ export default function useControlledForm({
     error,
     onChange,
     validate,
+    setError,
   } as IUseControlledForm;
 }

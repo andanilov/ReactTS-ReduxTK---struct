@@ -1,0 +1,8 @@
+/* --- Form errors --- */
+
+div.error input {
+    border: 1px solid rgb(222, 80, 80) !important;
+}
+div.error > div {
+    color: rgb(222, 80, 80);
+}

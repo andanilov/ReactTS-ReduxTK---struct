@@ -4,12 +4,12 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { publicRoutes, privateRoutes, RouteNames } from '../../routes';
 
 const NaviTop : FC = () => {
-  const { access } = useTypedSelector((state) => state.auth);
+  const { access, user } = useTypedSelector((state) => state.auth);
+  console.log('user from some component: ', user);
 
   return (
     <nav>
-      <Link to={RouteNames.MAIN}>Главная</Link>
-      { access
+      { Object.keys(user).length
         ? (
           <Link to={RouteNames.ACCOUNT}>Аккаунт</Link>
         ) : (

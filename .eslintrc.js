@@ -18,6 +18,7 @@ module.exports = {
 	],
 	'rules': {
 		'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
+		'react/require-default-props': 'off',
 		'no-console': 'off',
 		'linebreak-style': 'off',
 		'import/extensions': 'off',
@@ -33,6 +34,7 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'off',
 		'jsx-a11y/label-has-associated-control': 'off',
 		'react/jsx-no-useless-fragment': 'off',
-		'react/button-has-type': 'off'
+		'react/button-has-type': 'off',
+		'no-return-await': 'off',
 	}
 };

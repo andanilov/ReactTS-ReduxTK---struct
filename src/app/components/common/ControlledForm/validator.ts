@@ -4,6 +4,7 @@ export type Fnctn = (a?: ValidateResult) => string | false;
 export interface IRuleArguments {
   msg?: string,
   len?: number,
+  original?: string,
 }
 
 type Rule = (argv : IRuleArguments) => Fnctn;
@@ -15,6 +16,7 @@ export interface IRules {
   isLink: Rule;
   min: Rule;
   max: Rule;
+  isSimilar: Rule;
 }
 
 export const rules : IRules = {
@@ -48,6 +50,10 @@ export const rules : IRules = {
     : msg),
 
   max: ({ len = 3, msg = 'Слишком длинная запись' }) => (data) => (String(data).trim().length <= len
+    ? false
+    : msg),
+
+  isSimilar: ({ original, msg = 'Данные не совпадают' }) => (data) => ((String(data).trim() === String(original).trim())
     ? false
     : msg),
 };
