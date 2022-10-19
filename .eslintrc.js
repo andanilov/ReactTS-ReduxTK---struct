@@ -36,5 +36,9 @@ module.exports = {
 		'react/jsx-no-useless-fragment': 'off',
 		'react/button-has-type': 'off',
 		'no-return-await': 'off',
+		'max-len': 'off',
+		'react/jsx-wrap-multilines': 'off',
+		'consistent-return': 'off',
+		'no-new': 'off'
 	}
 };

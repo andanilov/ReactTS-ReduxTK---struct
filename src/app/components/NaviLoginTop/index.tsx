@@ -1,17 +1,22 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { publicRoutes, privateRoutes, RouteNames } from '../../routes';
+import { RouteNames } from '../../routes';
 
 const NaviTop : FC = () => {
-  const { access, user } = useTypedSelector((state) => state.auth);
-  console.log('user from some component: ', user);
+  const { user } = useTypedSelector((state) => state.auth);
+  const { handleLogout } = useAuth();
 
   return (
     <nav>
-      { Object.keys(user).length
+      { user
         ? (
-          <Link to={RouteNames.ACCOUNT}>Аккаунт</Link>
+          <>
+            <Link to={RouteNames.ACCOUNT}>{user?.name ?? user.email}</Link>
+            &nbsp;
+            <button onClick={handleLogout} type="button">Выйти</button>
+          </>
         ) : (
           <Link to={RouteNames.LOGIN}>Вход</Link>
         )}

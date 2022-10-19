@@ -23,7 +23,7 @@ const LogRegMap : ILogRegMap = {
 
 const FormLogReg: FC<{ status?: keyof ILogRegMap }> = ({ status = 'log' }) => {
   const [currentStatus, setCurrentStatus] = useState(status || 'log');
-  const { handleLogin } = useAuth();
+  const { handleLogin, handleRegistration } = useAuth();
 
   // const dispatch = useTypedDispatch();
 
@@ -66,7 +66,7 @@ const FormLogReg: FC<{ status?: keyof ILogRegMap }> = ({ status = 'log' }) => {
       </>
       <>
         {currentStatus === 'reg' && (
-          <ControlledForm>
+          <ControlledForm handleSubmit={handleRegistration}>
             <TextField
               name="email"
               label="Email"

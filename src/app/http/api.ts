@@ -9,7 +9,7 @@ const api = axios.create({
 
 // Request interceptors: add access token to request header
 api.interceptors.request.use((config: AxiosRequestConfig) => {
-  config?.headers && (config.headers.Authorisation = `Bearer ${StorageService.getAccesToken()}`);
+  config?.headers && (config.headers.Authorization = `Bearer ${StorageService.getAccesToken()}`);
   return config;
 });
 

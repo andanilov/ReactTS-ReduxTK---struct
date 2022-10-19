@@ -9,10 +9,6 @@ const Main : FC = () => {
   // const dispatch = useTypedDispatch();
   const { access, user } = useTypedSelector((state) => state.auth);
 
-  // useEffect(() => { AuthService.fetchAll().then((data) => console.log(data)); }, []);
-  // useEffect(() => { dispatch(userFetchAll()); }, [dispatch]);
-  useEffect(() => { console.log(user); }, [user]);
-
   return (
     <MainLayout>
       Main page!

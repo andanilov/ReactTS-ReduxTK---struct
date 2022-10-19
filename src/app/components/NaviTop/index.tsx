@@ -1,20 +1,16 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { publicRoutes, privateRoutes, RouteNames } from '../../routes';
+import { RouteNames } from '../../routes';
 
 const NaviTop : FC = () => {
-  const { access } = useTypedSelector((state) => state.auth);
+  const { user } = useTypedSelector((state) => state.auth);
 
   return (
     <nav>
       <Link to={RouteNames.MAIN}>Главная</Link>
-      { access
-        ? (
-          <Link to={RouteNames.ACCOUNT}>Аккаунт</Link>
-        ) : (
-          <Link to={RouteNames.LOGIN}>Вход</Link>
-        )}
+      &nbsp;
+      {user && <Link to={RouteNames.USERS}>Список пользователей</Link>}
     </nav>
   );
 };
