@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { AxiosError } from 'axios';
-// import { redirect, RedirectFunction } from 'react-router-dom';
-import { Navigate, useNavigate, redirect } from 'react-router-dom';
+import { useNavigate, redirect } from 'react-router-dom';
 
 import { RouteNames } from '../routes/index';
 import { useTypedDispatch } from './useTypedDispatch';
@@ -24,10 +23,24 @@ export function useAuth() {
       // 3. Set user to global state
       dispatch(setUser(userData.user));
       // 4. Go to main page
-      navigate(RouteNames.MAIN);
+      navigate(-1);
     } catch (e) {
       if (e instanceof AxiosError) {
         const msg = e.response?.data?.message ?? 'Ошибка авторизации!';
+        setErrors((prevError : Object) => ({ ...prevError, email: msg }));
+      }
+    }
+  };
+
+  const handleRemember : HandleSubmit = async ({ email }, setErrors) => {
+    try {
+      // 1. Try to login
+      await AuthService.remember(email as string);
+      // 2. Go to main page
+      navigate(RouteNames.LOGIN, { state: { msg: 'Ссылка на смену пароля была отправлена на Ваш email' } });
+    } catch (e) {
+      if (e instanceof AxiosError) {
+        const msg = e.response?.data?.message ?? 'Ошибка сброса пароля!';
         setErrors((prevError : Object) => ({ ...prevError, email: msg }));
       }
     }
@@ -41,8 +54,7 @@ export function useAuth() {
       // 3. Set user to global state
       dispatch(setUser(userData.user));
       // 4. Go to main page
-      redirect(RouteNames.ACCOUNT);
-      // navigate(RouteNames.ACCOUNT, { state: { msg: 'Поздравляем с успешной регистрацией!' } });
+      navigate(RouteNames.ACCOUNT, { state: { msg: 'Поздравляем с успешной регистрацией!' } });
     } catch (e) {
       if (e instanceof AxiosError) {
         const msg = e.response?.data?.message ?? 'Ошибка регистрации!';
@@ -70,5 +82,6 @@ export function useAuth() {
     handleLogin,
     handleLogout,
     handleRegistration,
+    handleRemember,
   };
 }

@@ -25,4 +25,8 @@ export default class AuthService {
   static async logout() : Promise<void> {
     return await api.post(ApiRoutes.LOGOUT);
   }
+
+  static async remember(email: string) : Promise<void> {
+    return await api.post(ApiRoutes.REMEMBER, { email });
+  }
 }

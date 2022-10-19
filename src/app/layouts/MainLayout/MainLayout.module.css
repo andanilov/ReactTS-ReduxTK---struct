@@ -28,3 +28,8 @@
     height: 50px;
     text-align: center;
 }
+
+.msg, .error {
+    padding: 1em;
+    text-align: center;
+}

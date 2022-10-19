@@ -23,22 +23,7 @@ const LogRegMap : ILogRegMap = {
 
 const FormLogReg: FC<{ status?: keyof ILogRegMap }> = ({ status = 'log' }) => {
   const [currentStatus, setCurrentStatus] = useState(status || 'log');
-  const { handleLogin, handleRegistration } = useAuth();
-
-  // const dispatch = useTypedDispatch();
-
-  // const handleSubmit: HandleSubmit = (data) => console.log('Result', data);
-
-  // const handleRegistration: HandleSubmit = async ({ email, password, name }) => await AuthService
-  //   .registration(email as string, password as string, name as string);
-
-  // const handleLogin: HandleSubmit = async ({ email, password }) => await AuthService
-  //   .login(email as string, password as string);
-  // const handleLogin: HandleSubmit = async ({ email, password }, setErrors) => {
-  //   console.log('pressed!');
-  // setErrors((prevErrors: Object) => ({ ...prevErrors, email: '!!!!!!!!!!!!' }));
-  // dispatch(userLogin({ email, password } as { email: string, password: string }));
-  // };
+  const { handleLogin, handleRegistration, handleRemember } = useAuth();
 
   return (
     <>
@@ -97,7 +82,7 @@ const FormLogReg: FC<{ status?: keyof ILogRegMap }> = ({ status = 'log' }) => {
       </>
       <>
         {currentStatus === 'rem' && (
-          <ControlledForm>
+          <ControlledForm handleSubmit={handleRemember}>
             <TextField
               name="email"
               label="Email"
